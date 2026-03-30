@@ -2,6 +2,7 @@ package com.yassine.employee.restcontrollers;
 
 import java.util.List;
 
+import com.yassine.employee.dto.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,22 +28,22 @@ public class EmployeeRESTController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public List<Employee> getAllEmployees() {
+    public List<EmployeeDTO> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
     @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable Integer id) {
+    public EmployeeDTO getEmployeeById(@PathVariable Integer id) {
         return employeeService.getEmployee(id);
     }
 
     @PostMapping
-    public Employee createEmployee(@RequestBody Employee emp) {
+    public EmployeeDTO createEmployee(@RequestBody EmployeeDTO emp) {
         return employeeService.saveEmployee(emp);
     }
 
     @PutMapping
-    public Employee updateEmployee(@RequestBody Employee emp) {
+    public EmployeeDTO updateEmployee(@RequestBody EmployeeDTO emp) {
         return employeeService.updateEmployee(emp);
     }
 
@@ -52,7 +53,7 @@ public class EmployeeRESTController {
     }
 
     @GetMapping("/EmployeeGrade/{idGradeEmp}")
-    public List<Employee> getEmployeesByGrade(@PathVariable Integer idGradeEmp) {
+    public List<EmployeeDTO> getEmployeesByGrade(@PathVariable Integer idGradeEmp) {
         return employeeService.findByGradeIdGraEmp(idGradeEmp);
     }
 }

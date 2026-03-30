@@ -17,6 +17,8 @@ import com.yassine.employee.Repository.GradeRepository;
 import com.yassine.employee.entity.Grade;
 import com.yassine.employee.service.GradeService;
 
+import jakarta.transaction.Transactional;
+
 import org.springframework.web.bind.annotation.RequestMethod; 
 
 @RestController
@@ -46,7 +48,7 @@ public class GradeRESTController {
     public Grade getGradeById(@PathVariable Integer id) {
         return gradeService.getGradeById(id);
     }
-
+    @Transactional
     @DeleteMapping("/{id}")
     public void deleteGrade(@PathVariable Integer id) {
         gradeService.deleteGrade(id);

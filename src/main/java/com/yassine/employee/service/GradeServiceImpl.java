@@ -19,7 +19,7 @@ public class GradeServiceImpl implements GradeService {
     private EmployeeRepository employeeRepository;
     @Override
     public Grade saveGrade(Grade grade) {
-        // Save fonctionne pour insert ou update si l'ID existe
+       
         return gradeRepository.save(grade);
     }
 

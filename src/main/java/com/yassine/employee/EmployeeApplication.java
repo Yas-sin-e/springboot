@@ -9,7 +9,8 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import com.yassine.employee.entity.Employee;
 import com.yassine.employee.entity.Grade;
 import com.yassine.employee.entity.Grade;
-
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class EmployeeApplication implements CommandLineRunner {
 	@Autowired 
@@ -18,7 +19,10 @@ public class EmployeeApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeApplication.class, args);
 	}
-
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 	@Override
 	public void run(String... args) throws Exception {
 		repositoryRestConfiguration.exposeIdsFor(Employee.class,Grade.class);
