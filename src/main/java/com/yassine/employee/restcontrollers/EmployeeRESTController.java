@@ -21,7 +21,7 @@ import ch.qos.logback.core.joran.spi.HttpUtil.RequestMethod;
 
 @RestController //trasfomer les retoure en json pret pour angular 
 @RequestMapping("/api") //le prefixe commun pour tous les routes 
-
+@CrossOrigin
 public class EmployeeRESTController {
 
     @Autowired
